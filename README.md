@@ -9,10 +9,15 @@ With its user-friendly graphical interface, the predictor simplifies the process
 **Features:-**
 
   🔹User-Friendly GUI: Built using Tkinter with a modern theme for better visuals.
+  
   🔹Car Model Selection: Select car models from a dropdown menu.
+  
   🔹Price Prediction: Get predicted selling price based on car features.
+  
   🔹Depreciation Graph: Visualize the price trend over the years.
+  
   🔹Interactive Visuals: Embedded Matplotlib graphs directly in the application.
+  
 
 **Technologies Used:-**
   🔹Programming Language: Python
