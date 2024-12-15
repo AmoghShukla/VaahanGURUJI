@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import Tk, Label, Button, messagebox
 from tkinter import ttk
 from ttkthemes import ThemedTk  # For a themed Tkinter window
@@ -10,8 +12,8 @@ class CarPricePredictionApp:
         self.car_data = car_data
 
         # GUI Layout
-        self.root.title("Car Price Prediction")
-        self.root.geometry("600x400")
+        self.root.title("VaahanGURUJI")
+        self.root.geometry("800x600")
         self.root.configure(bg="#f7f7f7")  # Light background color
 
         # Style Configuration
@@ -33,18 +35,23 @@ class CarPricePredictionApp:
         # Predict Button
         Button(self.root, text="Predict Details", font=("Arial", 12), bg="#4CAF50", fg="white", relief="flat", command=self.predict_details).pack(pady=15)
 
-        # Result Label
+        # Result Frame
         self.result_frame = ttk.Frame(self.root, style='TFrame')
         self.result_frame.pack(pady=10, fill='x', padx=10)
         self.result_label = Label(self.result_frame, text="", font=("Arial", 12), justify="left", bg="#f7f7f7")
         self.result_label.pack(pady=5)
+
+        # Graph Frame
+        self.graph_frame = ttk.Frame(self.root)
+        self.graph_frame.pack(pady=20, fill='both', expand=True)
 
     def predict_details(self):
         selected_car = self.car_selector.get()
         if selected_car == "Select a car model":
             messagebox.showwarning("Selection Error", "Please select a car model.")
             return
-        
+
+        # Predict price and fetch car details
         car_details = self.car_data[self.car_data['Car_Name'] == selected_car].iloc[0]
         input_features = car_details.drop(['Car_Name', 'Selling_Price']).values.reshape(1, -1)
         scaled_features = self.scaler.transform(input_features)
@@ -53,12 +60,41 @@ class CarPricePredictionApp:
         year_of_sale = 2024  # Assuming predictions are for the current year
         current_price = car_details['Present_Price']
         distance_driven = car_details['Kms_Driven']
-        
+
+        # Update result label
         self.result_label.config(text=(f"Details for {selected_car}:\n"
                                        f"  - Predicted Selling Price: ₹{predicted_price:.2f} Lakhs\n"
                                        f"  - Current Price: ₹{current_price:.2f} Lakhs\n"
                                        f"  - Distance Driven: {distance_driven} KM\n"
                                        f"  - Year of Prediction: {year_of_sale}"))
+
+        # Plot depreciation graph
+        self.plot_depreciation_graph(selected_car, current_price, predicted_price)
+
+    def plot_depreciation_graph(self, car_model, current_price, predicted_price):
+        # Simulate depreciation data (for demonstration purposes)
+        years = list(range(0, 11))  # From 0 to 10 years
+        depreciation_rate = 0.15  # 15% annual depreciation
+        prices = [current_price * ((1 - depreciation_rate) ** year) for year in years]
+
+        # Create a plot
+        fig, ax = plt.subplots(figsize=(6, 4))
+        ax.plot(years, prices, marker='o', label=f"{car_model} Price Trend")
+        ax.axhline(predicted_price, color='red', linestyle='--', label="Predicted Price")
+        ax.set_title(f"Price Depreciation for {car_model}", fontsize=14)
+        ax.set_xlabel("Years of Ownership", fontsize=12)
+        ax.set_ylabel("Price (₹ Lakhs)", fontsize=12)
+        ax.legend()
+        ax.grid()
+
+        # Clear previous graph if exists
+        for widget in self.graph_frame.winfo_children():
+            widget.destroy()
+
+        # Embed the plot in the Tkinter GUI
+        canvas = FigureCanvasTkAgg(fig, master=self.graph_frame)
+        canvas.draw()
+        canvas.get_tk_widget().pack(fill='both', expand=True)
 
 # Run GUI
 if __name__ == "__main__":
