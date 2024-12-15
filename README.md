@@ -7,6 +7,7 @@ The need for such a tool arises from the inconsistencies and biases in tradition
 With its user-friendly graphical interface, the predictor simplifies the process, ensuring transparency and fairness in car pricing. This project showcases the practical application of machine learning in solving real-world problems and highlights its potential to revolutionize how we evaluate assets in everyday life.
 
 **Features:-**
+
   🔹User-Friendly GUI: Built using Tkinter with a modern theme for better visuals.
   🔹Car Model Selection: Select car models from a dropdown menu.
   🔹Price Prediction: Get predicted selling price based on car features.
