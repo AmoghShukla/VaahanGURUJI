@@ -17,60 +17,108 @@ With its user-friendly graphical interface, the predictor simplifies the process
   🔹Depreciation Graph: Visualize the price trend over the years.
   
   🔹Interactive Visuals: Embedded Matplotlib graphs directly in the application.
+
   
 
 **Technologies Used:-**
+
   🔹Programming Language: Python
+  
   🔹GUI Framework: Tkinter with ttkthemes
+  
   🔹Machine Learning Model: Linear Regression (via scikit-learn)
+  
   🔹Visualization: Matplotlib
+  
 
 **Usage:-**
+
 Run the application: python app.py
-The GUI window will open. Follow these steps:
+The GUI window will open. 
+Follow these steps:
+
   ▸Select a car model from the dropdown menu.
+  
   ▸Click on the "Predict Details" button.
+  
   ▸View the predicted price and other details.
+  
   ▸Explore the depreciation graph for the selected car.
+  
 
 **Dataset:-**
+
 The application uses a dataset of car details including:
+
 🔹Car name
+
 🔹Selling price
+
 🔹Present price
+
 🔹Kms driven
+
 🔹Fuel type
+
 🔹Seller type
+
 🔹Transmission type
+
 🔹Age of the car
+
 
 The dataset is preprocessed to handle categorical data and scale numerical features for better predictions.
 
+
 **Project Structure:-**
+
 VaahanGURUJI/
+
   ├── app.py                # Main application script
+  
   ├── car data.csv          # Dataset for training the ML model
+  
   ├── requirements.txt      # Python dependencies
+  
   └── README.md             # Project documentation
+  
 
   **Dependencies:-**
+  
   🔹Python 3.7+
+  
   🔹Pandas
+  
   🔹Sci-Kit Learn
+  
   🔹Matplotlib
+  
   🔹Tktinker
+  
   🔹ttkthemes
+  
 
   **Future Enhancements:-**
+  
   🔹Add more advanced machine learning models for improved accuracy.
+  
   🔹Include more car features for detailed predictions.
-  🔹Deploy the app as a web-based or mobile application.
 
-  **Acknowledgements:-**'
+  🔹Deploy the app as a web-based or mobile application.
+  
+
+  **Acknowledgements:-**
+  
   🔹The dataset used in this application is for educational purposes.
+  
   🔹Thanks to the contributors of open-source libraries used in this project.
+  
 
   **Contact:-**
+  
   🔹Name : Amogh Shukla
-  🔹E-mail : amoghshukla548@gmail.com\
+  
+  🔹E-mail : amoghshukla548@gmail.com
+  
   🔹Github : AmoghShukla
+  
