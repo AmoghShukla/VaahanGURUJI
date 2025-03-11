@@ -69,5 +69,19 @@ JWT_SECRET=your_secret_key
 - Secure password storage with bcrypt
 - Role-based authentication
 
+## 🤝 Contributing
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit changes (`git commit -m "Added a new feature"`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Open a Pull Request
+
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
+
+## 📞 Contact
+- **Author:** Amogh Shukla
+- **GitHub:** [AmoghShukla](https://github.com/AmoghShukla)
+- **Email:** amoghshukla548@gmail.com
 
 
